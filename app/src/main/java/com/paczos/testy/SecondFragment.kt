@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.paczos.testy.databinding.FragmentSecondBinding
 import com.paczos.testy.ui.login.LoginActivity
 import android.R.id
+import com.paczos.testy.ui.listy_zakupow.zakupy
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -39,7 +40,7 @@ class SecondFragment : Fragment() {
         }
         binding.button2.setOnClickListener {
             //var i = Intent(requireContext() , LoginActivity::class.java)
-            var i = Intent(requireContext() , slider::class.java)
+            var i = Intent(requireContext() , zakupy::class.java)
             startActivity(i)
         }
     }
