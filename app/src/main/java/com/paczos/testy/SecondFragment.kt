@@ -38,7 +38,8 @@ class SecondFragment : Fragment() {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
         binding.button2.setOnClickListener {
-            var i = Intent(requireContext() , LoginActivity::class.java)
+            //var i = Intent(requireContext() , LoginActivity::class.java)
+            var i = Intent(requireContext() , slider::class.java)
             startActivity(i)
         }
     }
