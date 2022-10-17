@@ -25,9 +25,9 @@ class listy_zakupow : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        binding.nowaListaZakupow.setOnClickListener {
+            findNavController().navigate(R.id.idz_do_dodaj_liste)
+
         }
         _binding = ListyZakupowBinding.inflate(inflater, container, false)
         return binding.root
@@ -37,9 +37,9 @@ class listy_zakupow : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonFirst.setOnClickListener {
+        /*binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }
+        }*/
     }
 
     override fun onDestroyView() {

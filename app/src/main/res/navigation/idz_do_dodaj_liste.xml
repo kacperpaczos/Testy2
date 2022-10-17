@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/idz_do_dodaj_liste"
+    app:startDestination="@id/zakupy">
+
+    <activity
+        android:id="@+id/zakupy"
+        android:name="com.paczos.testy.ui.listy_zakupow.zakupy"
+        android:label="listy_zakupow"
+        tools:layout="@layout/listy_zakupow" />
+    <fragment
+        android:id="@+id/nowa_lista"
+        android:name="com.paczos.testy.nowa_lista"
+        android:label="nowa_lista"
+        tools:layout="@layout/nowa_lista" >
+        <action
+            android:id="@+id/action_nowa_lista_to_zakupy"
+            app:destination="@id/zakupy" />
+    </fragment>
+</navigation>
