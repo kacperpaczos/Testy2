@@ -1,6 +1,7 @@
 package com.paczos.testy.ui.login
 
 import android.app.Activity
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -8,13 +9,17 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
+import com.paczos.testy.MainActivity
 import com.paczos.testy.databinding.ActivityLoginBinding
 
 import com.paczos.testy.R
+import com.paczos.testy.ui.listy_zakupow.zakupy
 
 class LoginActivity : AppCompatActivity() {
 
@@ -55,14 +60,28 @@ class LoginActivity : AppCompatActivity() {
             loading.visibility = View.GONE
             if (loginResult.error != null) {
                 showLoginFailed(loginResult.error)
+                Log.i("LoginError", loginResult.error.toString())
+                setResult(Activity.RESULT_OK)
+
+                //Complete and destroy login activity once successful
+                finish()
+                val i = Intent(this@LoginActivity , LoginActivity::class.java)
+                startActivity(i)
             }
             if (loginResult.success != null) {
                 updateUiWithUser(loginResult.success)
-            }
-            setResult(Activity.RESULT_OK)
+                Log.i("LoginSukcess", loginResult.success.toString())
 
-            //Complete and destroy login activity once successful
-            finish()
+                setResult(Activity.RESULT_OK)
+
+                //Complete and destroy login activity once successful
+                finish()
+                val i = Intent(this@LoginActivity , MainActivity::class.java)
+                startActivity(i)
+            }
+
+
+
         })
 
         username.afterTextChanged {
@@ -97,6 +116,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
+
 
     private fun updateUiWithUser(model: LoggedInUserView) {
         val welcome = getString(R.string.welcome)

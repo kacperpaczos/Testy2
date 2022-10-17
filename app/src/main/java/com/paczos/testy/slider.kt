@@ -1,19 +1,13 @@
 package com.paczos.testy
 
-import com.google.android.material.snackbar.Snackbar
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import com.paczos.testy.databinding.ActivitySliderBinding
 
-
-
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.viewpager.widget.ViewPager
-import com.paczos.testy.ViewPagerAdapter
+import com.paczos.testy.ui.login.LoginActivity
 
 
 class slider : AppCompatActivity() {
@@ -23,6 +17,7 @@ class slider : AppCompatActivity() {
     lateinit var viewPager: ViewPager
     lateinit var viewPagerAdapter: ViewPagerAdapter
     lateinit var imageList: List<Int>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +40,13 @@ class slider : AppCompatActivity() {
         // on below line we are setting
         // adapter to our view pager.
         viewPager.adapter = viewPagerAdapter
+
+        val buttonClick = findViewById<Button>(R.id.goToLogin)
+        buttonClick.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
 }

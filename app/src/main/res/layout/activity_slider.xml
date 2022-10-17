@@ -7,6 +7,20 @@
     tools:context=".slider">
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/goToLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dalej"
+            android:visibility="visible" />
+
+    </LinearLayout>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/idViewPager"
@@ -14,6 +28,8 @@
         android:layout_height="300dp"
         android:layout_centerInParent="true"
         android:layout_gravity="center"
-        android:layout_margin="10dp" />
+        android:layout_margin="10dp" >
+
+    </androidx.viewpager.widget.ViewPager>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
